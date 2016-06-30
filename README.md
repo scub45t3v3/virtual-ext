@@ -1,5 +1,5 @@
 # Virtual Ext
-[![Build Status](https://travis-ci.org/scub45t3v3/virtual-ext.svg?branch=master)](https://travis-ci.org/scub45t3v3/acceptable)
+[![Build Status](https://travis-ci.org/scub45t3v3/virtual-ext.svg?branch=master)](https://travis-ci.org/scub45t3v3/virtual-ext)
 
 ## Purpose
 Allow file extension in uri to replace Accept header
