@@ -22,7 +22,7 @@ describe '#virtual', ->
       .httpAgent(app)
       .get('/test.js')
       .expect(200)
-      .expect('Content-Type', 'application/javascript')
+      .expect('Content-Type', /^application\/javascript/i)
       .end done
 
     return null
@@ -32,7 +32,7 @@ describe '#virtual', ->
       .httpAgent(app)
       .get('/test.json')
       .expect(200)
-      .expect('Content-Type', 'application/json')
+      .expect('Content-Type', /^application\/json/i)
       .end done
 
     return null

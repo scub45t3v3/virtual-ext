@@ -17,15 +17,15 @@
 
   describe('#virtual', function() {
     it('should be a function', function() {
-      unit["function"](virtual);
+      unit.function(virtual);
       return null;
     });
     it('should replace js ext in url with appropriate accept header', function(done) {
-      unit.httpAgent(app).get('/test.js').expect(200).expect('Content-Type', 'application/javascript').end(done);
+      unit.httpAgent(app).get('/test.js').expect(200).expect('Content-Type', /^application\/javascript/i).end(done);
       return null;
     });
     it('should replace json ext in url with appropriate accept header', function(done) {
-      unit.httpAgent(app).get('/test.json').expect(200).expect('Content-Type', 'application/json').end(done);
+      unit.httpAgent(app).get('/test.json').expect(200).expect('Content-Type', /^application\/json/i).end(done);
       return null;
     });
     it('should replace xml ext in url with appropriate accept header', function(done) {

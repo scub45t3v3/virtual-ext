@@ -6,7 +6,7 @@ virtual = (req, res, next) ->
   regex = new RegExp "#{ext}(\\?.+|)$"
 
   if /[a-z]/i.test(ext)
-    req.headers.accept = mime.lookup ext
+    req.headers.accept = mime.getType ext
     req.url = req.url.replace regex, '$1'
 
   return next()
