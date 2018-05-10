@@ -20,6 +20,10 @@
       unit.function(virtual);
       return null;
     });
+    it('should do nothing when url has no ext', function(done) {
+      unit.httpAgent(app).get('/test').set('Accept', 'text/html').expect(200).expect('Content-Type', /^text\/html/i).expect('X-Request-URL', '/test').end(done);
+      return null;
+    });
     it('should replace js ext in url with appropriate accept header', function(done) {
       unit.httpAgent(app).get('/test.js').expect(200).expect('Content-Type', /^application\/javascript/i).expect('X-Request-URL', '/test').end(done);
       return null;

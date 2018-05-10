@@ -18,6 +18,18 @@ describe '#virtual', ->
 
     return null
 
+  it 'should do nothing when url has no ext', (done) ->
+    unit
+      .httpAgent app
+      .get '/test'
+      .set 'Accept', 'text/html'
+      .expect 200
+      .expect 'Content-Type', /^text\/html/i
+      .expect 'X-Request-URL', '/test'
+      .end done
+
+    return null
+
   it 'should replace js ext in url with appropriate accept header', (done) ->
     unit
       .httpAgent app
