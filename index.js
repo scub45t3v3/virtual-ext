@@ -1,5 +1,5 @@
 (function() {
-  var exports, mime, path, virtual;
+  var mime, path, virtual;
 
   path = require('path');
 
@@ -16,6 +16,6 @@
     return next();
   };
 
-  exports = module.exports = virtual;
+  module.exports = virtual;
 
 }).call(this);

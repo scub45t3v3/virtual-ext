@@ -11,4 +11,4 @@ virtual = (req, res, next) ->
 
   return next()
 
-exports = module.exports = virtual
+module.exports = virtual
