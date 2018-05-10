@@ -29,19 +29,19 @@
       return null;
     });
     it('should replace xml ext in url with appropriate accept header', function(done) {
-      unit.httpAgent(app).get('/test.xml').expect(200).expect('Content-Type', 'application/xml').end(done);
+      unit.httpAgent(app).get('/test.xml').expect(200).expect('Content-Type', /^application\/xml/i).end(done);
       return null;
     });
     it('should replace html ext in url with appropriate accept header', function(done) {
-      unit.httpAgent(app).get('/test.html').expect(200).expect('Content-Type', /html/).end(done);
+      unit.httpAgent(app).get('/test.html').expect(200).expect('Content-Type', /^text\/html/i).end(done);
       return null;
     });
     it('should replace txt ext in url with appropriate accept header', function(done) {
-      unit.httpAgent(app).get('/test.txt').expect(200).expect('Content-Type', /plain/).end(done);
+      unit.httpAgent(app).get('/test.txt').expect(200).expect('Content-Type', /^text\/plain/i).end(done);
       return null;
     });
     return it('should replace jpg ext in url with appropriate accept header', function(done) {
-      unit.httpAgent(app).get('/test.jpg').expect(200).expect('Content-Type', 'image/jpeg').end(done);
+      unit.httpAgent(app).get('/test.jpg').expect(200).expect('Content-Type', /^image\/jpeg/i).end(done);
       return null;
     });
   });

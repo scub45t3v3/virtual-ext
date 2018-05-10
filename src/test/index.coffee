@@ -42,7 +42,7 @@ describe '#virtual', ->
       .httpAgent app
       .get '/test.xml'
       .expect 200
-      .expect 'Content-Type', 'application/xml'
+      .expect 'Content-Type', /^application\/xml/i
       .end done
 
     return null
@@ -52,7 +52,7 @@ describe '#virtual', ->
       .httpAgent app
       .get '/test.html'
       .expect 200
-      .expect 'Content-Type', /html/
+      .expect 'Content-Type', /^text\/html/i
       .end done
 
     return null
@@ -62,7 +62,7 @@ describe '#virtual', ->
       .httpAgent app
       .get '/test.txt'
       .expect 200
-      .expect 'Content-Type', /plain/
+      .expect 'Content-Type', /^text\/plain/i
       .end done
 
     return null
@@ -72,7 +72,7 @@ describe '#virtual', ->
       .httpAgent app
       .get '/test.jpg'
       .expect 200
-      .expect 'Content-Type', 'image/jpeg'
+      .expect 'Content-Type', /^image\/jpeg/i
       .end done
 
     return null
