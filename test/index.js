@@ -12,7 +12,7 @@
   app.use(virtual);
 
   app.get('/test', function(req, res, next) {
-    return res.status(200).set('Content-Type', req.headers.accept).send();
+    return res.status(200).set('Content-Type', req.headers.accept).set('X-Request-URL', req.url).send();
   });
 
   describe('#virtual', function() {
@@ -21,27 +21,27 @@
       return null;
     });
     it('should replace js ext in url with appropriate accept header', function(done) {
-      unit.httpAgent(app).get('/test.js').expect(200).expect('Content-Type', /^application\/javascript/i).end(done);
+      unit.httpAgent(app).get('/test.js').expect(200).expect('Content-Type', /^application\/javascript/i).expect('X-Request-URL', '/test').end(done);
       return null;
     });
     it('should replace json ext in url with appropriate accept header', function(done) {
-      unit.httpAgent(app).get('/test.json').expect(200).expect('Content-Type', /^application\/json/i).end(done);
+      unit.httpAgent(app).get('/test.json').expect(200).expect('Content-Type', /^application\/json/i).expect('X-Request-URL', '/test').end(done);
       return null;
     });
     it('should replace xml ext in url with appropriate accept header', function(done) {
-      unit.httpAgent(app).get('/test.xml').expect(200).expect('Content-Type', /^application\/xml/i).end(done);
+      unit.httpAgent(app).get('/test.xml').expect(200).expect('Content-Type', /^application\/xml/i).expect('X-Request-URL', '/test').end(done);
       return null;
     });
     it('should replace html ext in url with appropriate accept header', function(done) {
-      unit.httpAgent(app).get('/test.html').expect(200).expect('Content-Type', /^text\/html/i).end(done);
+      unit.httpAgent(app).get('/test.html').expect(200).expect('Content-Type', /^text\/html/i).expect('X-Request-URL', '/test').end(done);
       return null;
     });
     it('should replace txt ext in url with appropriate accept header', function(done) {
-      unit.httpAgent(app).get('/test.txt').expect(200).expect('Content-Type', /^text\/plain/i).end(done);
+      unit.httpAgent(app).get('/test.txt').expect(200).expect('Content-Type', /^text\/plain/i).expect('X-Request-URL', '/test').end(done);
       return null;
     });
     return it('should replace jpg ext in url with appropriate accept header', function(done) {
-      unit.httpAgent(app).get('/test.jpg').expect(200).expect('Content-Type', /^image\/jpeg/i).end(done);
+      unit.httpAgent(app).get('/test.jpg').expect(200).expect('Content-Type', /^image\/jpeg/i).expect('X-Request-URL', '/test').end(done);
       return null;
     });
   });

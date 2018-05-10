@@ -8,6 +8,7 @@ app.get '/test', (req, res, next) ->
   res
     .status 200
     .set 'Content-Type', req.headers.accept
+    .set 'X-Request-URL', req.url
     .send()
 
 describe '#virtual', ->
@@ -23,6 +24,7 @@ describe '#virtual', ->
       .get '/test.js'
       .expect 200
       .expect 'Content-Type', /^application\/javascript/i
+      .expect 'X-Request-URL', '/test'
       .end done
 
     return null
@@ -33,6 +35,7 @@ describe '#virtual', ->
       .get '/test.json'
       .expect 200
       .expect 'Content-Type', /^application\/json/i
+      .expect 'X-Request-URL', '/test'
       .end done
 
     return null
@@ -43,6 +46,7 @@ describe '#virtual', ->
       .get '/test.xml'
       .expect 200
       .expect 'Content-Type', /^application\/xml/i
+      .expect 'X-Request-URL', '/test'
       .end done
 
     return null
@@ -53,6 +57,7 @@ describe '#virtual', ->
       .get '/test.html'
       .expect 200
       .expect 'Content-Type', /^text\/html/i
+      .expect 'X-Request-URL', '/test'
       .end done
 
     return null
@@ -63,6 +68,7 @@ describe '#virtual', ->
       .get '/test.txt'
       .expect 200
       .expect 'Content-Type', /^text\/plain/i
+      .expect 'X-Request-URL', '/test'
       .end done
 
     return null
@@ -73,6 +79,7 @@ describe '#virtual', ->
       .get '/test.jpg'
       .expect 200
       .expect 'Content-Type', /^image\/jpeg/i
+      .expect 'X-Request-URL', '/test'
       .end done
 
     return null
