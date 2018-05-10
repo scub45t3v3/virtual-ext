@@ -44,8 +44,12 @@
       unit.httpAgent(app).get('/test.txt').expect(200).expect('Content-Type', /^text\/plain/i).expect('X-Request-URL', '/test').end(done);
       return null;
     });
-    return it('should replace jpg ext in url with appropriate accept header', function(done) {
+    it('should replace jpg ext in url with appropriate accept header', function(done) {
       unit.httpAgent(app).get('/test.jpg').expect(200).expect('Content-Type', /^image\/jpeg/i).expect('X-Request-URL', '/test').end(done);
+      return null;
+    });
+    return it('should replace ext in url and retain query parameters', function(done) {
+      unit.httpAgent(app).get('/test.json?q=hi&test=1').expect(200).expect('Content-Type', /^application\/json/i).expect('X-Request-URL', '/test?q=hi&test=1').end(done);
       return null;
     });
   });

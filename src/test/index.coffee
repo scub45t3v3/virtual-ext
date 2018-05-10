@@ -95,3 +95,14 @@ describe '#virtual', ->
       .end done
 
     return null
+
+  it 'should replace ext in url and retain query parameters', (done) ->
+    unit
+      .httpAgent app
+      .get '/test.json?q=hi&test=1'
+      .expect 200
+      .expect 'Content-Type', /^application\/json/i
+      .expect 'X-Request-URL', '/test?q=hi&test=1'
+      .end done
+
+    return null
