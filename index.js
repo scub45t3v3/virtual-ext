@@ -6,12 +6,14 @@
   mime = require('mime');
 
   virtual = function(req, res, next) {
-    var ext, regex;
+    var accept, ext, regex, url;
+    accept = mime.getType(req.path);
     ext = path.extname(req.path);
     regex = new RegExp(`${ext}(\\?.+|)$`);
-    if (/[a-z]/i.test(ext)) {
-      req.headers.accept = mime.getType(ext);
-      req.url = req.url.replace(regex, '$1');
+    url = req.url.replace(regex, '$1');
+    if (accept && url !== req.url) {
+      req.headers.accept = accept;
+      req.url = url;
     }
     return next();
   };
