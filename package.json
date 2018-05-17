@@ -1,7 +1,7 @@
 {
   "name": "virtual-ext",
   "description": "middleware for Express and Restify to allow file extension in url",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "public": true,
   "main": "index.js",
   "license": "MIT",
