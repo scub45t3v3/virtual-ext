@@ -1,29 +1,31 @@
-(function() {
-  var debug, mime, path, virtual;
+'use strict';
 
-  path = require('path');
+(() => {
+  // include dependencies
+  const path = require('path');
+  const mime = require('mime');
+  const debug = require('debug')('virtual-ext');
 
-  mime = require('mime');
-
-  debug = require('debug')('virtual-ext');
-
-  virtual = function(req, res, next) {
-    var accept, ext, regex, url;
+  const virtual = (req, res, next) => {
     debug('Executing virtual-ext middleware');
-    accept = mime.getType(req.path);
-    ext = path.extname(req.path);
-    regex = new RegExp(`${ext}(\\?.+|)$`);
-    url = req.url.replace(regex, '$1');
+    const accept = mime.getType(req.path);
+    const ext = path.extname(req.path);
+    const regex = new RegExp(`${ext}(\\?.+|)$`);
+    const url = req.url.replace(regex, '$1');
+
     if (accept && url !== req.url) {
       debug('Update Accept header from %s to %s', req.headers.accept, accept);
       req.headers.accept = accept;
+
       debug('Update URL from %s to %s', req.url, url);
       req.url = url;
     }
+
     debug('Exiting virtual-ext middleware');
+
     return next();
-  };
+  }; // end virtual
 
+  // export middleware as commonjs module
   module.exports = virtual;
-
-}).call(this);
+})(); // end IIFE
