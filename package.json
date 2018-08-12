@@ -1,5 +1,5 @@
 {
-  "name": "virtual-ext",
+  "name": "@scuba-squad/virtual-ext",
   "description": "middleware for Express and Restify to allow file extension in url",
   "version": "0.1.1",
   "public": true,
