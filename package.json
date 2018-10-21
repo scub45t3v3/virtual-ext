@@ -36,6 +36,7 @@
     "node": ">= 6"
   },
   "devDependencies": {
+    "coveralls": "^3.0.2",
     "eslint": "^5.5.0",
     "eslint-config-scuba-squad": "^1.1.1",
     "express": "^4.16.3",
@@ -46,7 +47,6 @@
     "unit.js": "^2.0.0"
   },
   "dependencies": {
-    "coveralls": "^3.0.2",
     "debug": "^4.1.0",
     "mime": "^2.3.1"
   }
