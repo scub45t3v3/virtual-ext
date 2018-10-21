@@ -3,39 +3,42 @@
 [![Coverage Status](https://coveralls.io/repos/github/scub45t3v3/virtual-ext/badge.svg)](https://coveralls.io/github/scub45t3v3/virtual-ext)
 
 ## Purpose
-Allow file extension in uri to replace Accept header
+Transform a file extension in a url path into an Accept header
+
+```bash
+### ORIGINAL REQUEST ###
+HTTP/2.0 GET /v1/accounts.json
+
+Accept: */*
+
+### TRANSFORMED REQUEST ###
+HTTP/2.0 GET /v1/accounts
+
+Accept: application/json
+```
 
 ## Installation
 Via [npm](https://www.npmjs.com/)
 
-```
-npm install virtual-ext
+```bash
+npm install @scuba-squad/virtual-ext
 ```
 
 ## Usage
-*Coffeescript*
-
-```coffeescript
-express = require 'express'
-virtual = require 'virtual-ext'
-
-app = express()
-app.use virtual
-```
-
-*Javascript*
 
 ```javascript
-var express = require('express');
-var virtual = require('virtual-ext');
+const express = require('express');
+const virtual = require('@scuba-squad/virtual-ext');
 
-var app = express();
+const app = express();
 
 app.use(virtual);
 ```
 
 ## Test
-```
+[tests](TEST.md)
+
+```bash
 npm install
 npm test
 ```
