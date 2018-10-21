@@ -47,7 +47,7 @@
   },
   "dependencies": {
     "coveralls": "^3.0.2",
-    "debug": "^3.1.0",
+    "debug": "^4.1.0",
     "mime": "^2.3.1"
   }
 }
