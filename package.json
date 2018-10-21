@@ -1,7 +1,7 @@
 {
   "name": "@scuba-squad/virtual-ext",
   "description": "middleware for Express and Restify to allow file extension in url",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "public": true,
   "main": "index.js",
   "license": "MIT",
