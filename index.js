@@ -9,7 +9,7 @@ const virtual = (req, res, next) => {
   debug('call:virtual(req, res, next)');
   const accept = mime.getType(req.path);
   const ext = path.extname(req.path);
-  const regex = new RegExp(`${ext}(\\?.+|)$`);
+  const regex = new RegExp(`${ext}(\\?.+|)$`, 'u');
   const url = req.url.replace(regex, '$1');
 
   if (accept && url !== req.url) {

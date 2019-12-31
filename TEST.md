@@ -19,7 +19,7 @@ unit
   .get('/test')
   .set('Accept', 'text/html')
   .expect(200)
-  .expect('Content-Type', /^text\/html/i)
+  .expect('Content-Type', /^text\/html/iu)
   .expect('X-Request-URL', '/test')
   .end(done);
 ```
@@ -31,7 +31,7 @@ unit
   .httpAgent(app)
   .get('/test.js')
   .expect(200)
-  .expect('Content-Type', /^application\/javascript/i)
+  .expect('Content-Type', /^application\/javascript/iu)
   .expect('X-Request-URL', '/test')
   .end(done);
 ```
@@ -43,7 +43,7 @@ unit
   .httpAgent(app)
   .get('/test.json')
   .expect(200)
-  .expect('Content-Type', /^application\/json/i)
+  .expect('Content-Type', /^application\/json/iu)
   .expect('X-Request-URL', '/test')
   .end(done);
 ```
@@ -55,7 +55,7 @@ unit
   .httpAgent(app)
   .get('/test.xml')
   .expect(200)
-  .expect('Content-Type', /^application\/xml/i)
+  .expect('Content-Type', /^application\/xml/iu)
   .expect('X-Request-URL', '/test')
   .end(done);
 ```
@@ -67,7 +67,7 @@ unit
   .httpAgent(app)
   .get('/test.html')
   .expect(200)
-  .expect('Content-Type', /^text\/html/i)
+  .expect('Content-Type', /^text\/html/iu)
   .expect('X-Request-URL', '/test')
   .end(done);
 ```
@@ -79,7 +79,7 @@ unit
   .httpAgent(app)
   .get('/test.txt')
   .expect(200)
-  .expect('Content-Type', /^text\/plain/i)
+  .expect('Content-Type', /^text\/plain/iu)
   .expect('X-Request-URL', '/test')
   .end(done);
 ```
@@ -91,7 +91,7 @@ unit
   .httpAgent(app)
   .get('/test.jpg')
   .expect(200)
-  .expect('Content-Type', /^image\/jpeg/i)
+  .expect('Content-Type', /^image\/jpeg/iu)
   .expect('X-Request-URL', '/test')
   .end(done);
 ```
@@ -103,7 +103,7 @@ unit
   .httpAgent(app)
   .get('/test.json?q=hi&test=1')
   .expect(200)
-  .expect('Content-Type', /^application\/json/i)
+  .expect('Content-Type', /^application\/json/iu)
   .expect('X-Request-URL', '/test?q=hi&test=1')
   .end(done);
 ```
