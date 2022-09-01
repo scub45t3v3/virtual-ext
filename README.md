@@ -1,5 +1,5 @@
 # Virtual Ext
-[![Build Status](https://travis-ci.org/scub45t3v3/virtual-ext.svg?branch=master)](https://travis-ci.org/scub45t3v3/virtual-ext)
+[![Build Status](https://github.com/scub45t3v3/virtual-ext/workflows/CI/badge.svg?event=push)](https://github.com/scub45t3v3/virtual-ext/actions)
 [![Coverage Status](https://coveralls.io/repos/github/scub45t3v3/virtual-ext/badge.svg)](https://coveralls.io/github/scub45t3v3/virtual-ext)
 
 ## Purpose
